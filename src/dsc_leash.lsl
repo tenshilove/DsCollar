@@ -233,19 +233,6 @@ YankTo(key kIn){
     llStopMoveToTarget();
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 UserCommand(integer iAuth, string sMessage, key kMessageID, integer bFromMenu) {
 
     if (iAuth == CMD_EVERYONE) {
@@ -382,7 +369,7 @@ UserCommand(integer iAuth, string sMessage, key kMessageID, integer bFromMenu) {
                 LeashTo((key)sVal, kMessageID, iAuth, lPoints, FALSE);
             } else
                 SensorDialog(g_kCmdGiver, "\nTo whom shall %WEARERNAME%'s leash be given to?\n", sVal,iAuth,"LeashTarget", AGENT);
-        } else if (sMessage == "length") {
+        } else if (sComm == "length") {
             integer iNewLength = (integer)sVal;
             if (sVal==llToLower(BUTTON_UPMENU)){
                 UserCommand(iAuth, "leash", kMessageID ,bFromMenu);
@@ -475,12 +462,6 @@ SetLength(integer iIn) {
         g_iTargetHandle = llTarget(g_vPos, g_iLength);
     }
 }
-
-
-
-
-
-
 
 string NameURI(key kID){
     if (llGetAgentSize(kID))
@@ -587,11 +568,7 @@ ApplyRestrictions() {
                 return;
                 }
             }
-
-
         }
-
-
     }
 
     llMessageLinked(LINK_RLV, RLV_CMD, "clear", "realleash");
